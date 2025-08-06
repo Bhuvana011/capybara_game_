@@ -1,0 +1,105 @@
+[gd_scene load_steps=11 format=4 uid="uid://cn8s12acyywrc"]
+
+[ext_resource type="Texture2D" uid="uid://hoxxwrshgg5w" path="res://images/capybara-illustration-cute-animal-pixel-260nw-2312989313-removebg-preview.png" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://dbft6eu0y284u" path="res://player.gd" id="1_h2yge"]
+[ext_resource type="Texture2D" uid="uid://da1feohgsmmfi" path="res://1000_F_171172697_Y7YOHIXjtoNMgr3261Wio7X6U3wc4lYS-removebg-preview.png" id="2_h2yge"]
+[ext_resource type="Texture2D" uid="uid://dsjw5ugj1hmc2" path="res://images/pizel-cloud-back.jpg" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://fa51r3icqayb" path="res://fruit_ui.tscn" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://c4xgjiof82do2" path="res://fruit.tscn" id="6_7mycd"]
+[ext_resource type="AudioStream" uid="uid://bxx3jau1eyg1b" path="res://356-8-bit-chiptune-game-music-357518.mp3" id="7_272bh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(51.5, 44)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lquwl"]
+texture = ExtResource("2_h2yge")
+18:20/0 = 0
+19:20/0 = 0
+20:20/0 = 0
+21:20/0 = 0
+18:21/0 = 0
+19:21/0 = 0
+19:21/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+20:21/0 = 0
+20:21/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+21:21/0 = 0
+18:22/0 = 0
+19:22/0 = 0
+19:22/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+20:22/0 = 0
+20:22/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+21:22/0 = 0
+18:23/0 = 0
+19:23/0 = 0
+20:23/0 = 0
+21:23/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_7mycd"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_lquwl")
+
+[node name="Main" type="Node"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="FruitUI" parent="CanvasLayer" instance=ExtResource("5_lquwl")]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_h2yge")
+
+[node name="Sprite2D- Capy" type="Sprite2D" parent="Player"]
+position = Vector2(1085.13, 526.75)
+scale = Vector2(0.231268, 0.269643)
+texture = ExtResource("1_0xm2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(1094, 525)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(0, 6)
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAAXAAwAAAATABUAAAAWAAwAAAATABUAAAAVAAsAAAATABUAAAAVAAwAAAATABUAAAAUAAwAAAATABUAAAAUAAsAAAATABUAAAATAAsAAAATABUAAAATAAwAAAATABUAAAAQAAkAAAATABUAAAAPAAkAAAATABUAAAAOAAkAAAATABUAAAANAAkAAAATABUAAAARAAoAAAATABUAAAASAAsAAAATABUAAAAFAAwAAAATABUAAAADAAwAAAATABUAAAAEAAwAAAATABUAAAACAAwAAAATABUAAAABAAwAAAATABUAAAAAAAwAAAATABUAAAAAAAsAAAATABUAAAABAAsAAAATABUAAAACAAsAAAATABUAAAAMAAgAAAATABUAAAANAAcAAAATABUAAAAMAAcAAAATABUAAAAMAAkAAAATABUAAAANAAgAAAATABUAAAAKAAUAAAATABUAAAAJAAUAAAATABUAAAAIAAUAAAATABUAAAAHAAQAAAATABUAAAAFAAIAAAATABUAAAAEAAIAAAATABUAAAADAAIAAAATABUAAAADAAMAAAATABUAAAACAAUAAAATABUAAAABAAUAAAATABUAAAAFAAcAAAATABUAAAAEAAcAAAATABUAAAADAAcAAAATABUAAAAAAAoAAAATABUAAAA=")
+tile_set = SubResource("TileSet_7mycd")
+
+[node name="Pizel-cloud-back" type="Sprite2D" parent="."]
+z_index = -4000
+position = Vector2(574, 321)
+scale = Vector2(1.70833, 1.67708)
+texture = ExtResource("4_1bvp3")
+
+[node name="fruit" parent="." instance=ExtResource("6_7mycd")]
+position = Vector2(-42, 419)
+
+[node name="fruit2" parent="." instance=ExtResource("6_7mycd")]
+position = Vector2(117, 276)
+
+[node name="fruit3" parent="." instance=ExtResource("6_7mycd")]
+position = Vector2(186, 276)
+
+[node name="fruit4" parent="." instance=ExtResource("6_7mycd")]
+position = Vector2(34, 180)
+
+[node name="fruit5" parent="." instance=ExtResource("6_7mycd")]
+position = Vector2(111, 36)
+
+[node name="fruit6" parent="." instance=ExtResource("6_7mycd")]
+position = Vector2(295, 129)
+
+[node name="fruit7" parent="." instance=ExtResource("6_7mycd")]
+position = Vector2(426, 180)
+
+[node name="fruit8" parent="." instance=ExtResource("6_7mycd")]
+position = Vector2(778, 420)
+
+[node name="fruit9" parent="." instance=ExtResource("6_7mycd")]
+position = Vector2(563, 274)
+
+[node name="fruit10" parent="." instance=ExtResource("6_7mycd")]
+position = Vector2(963, 468)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_272bh")
+volume_db = -20.613
+autoplay = true
